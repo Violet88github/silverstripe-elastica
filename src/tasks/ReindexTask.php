@@ -4,7 +4,7 @@ namespace SilverStripe\Elastica\Tasks;
 
 use SilverStripe\Dev\BuildTask;
 use SilverStripe\Control\Director;
-use SilverStripe\Elastica\Services\ElasticaService;
+use Violet88\Elastica\Services\ElasticaService;
 
 /**
  * Defines and refreshes the elastic search index.

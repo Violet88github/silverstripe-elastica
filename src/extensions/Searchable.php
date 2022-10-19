@@ -4,8 +4,8 @@ namespace Violet88\Elastica\Extensions;
 
 use Elastica\Document;
 use Elastica\Mapping;
-use SilverStripe\Elastica\Services\ElasticaService;
 use SilverStripe\ORM\DataExtension;
+use Violet88\Elastica\Services\ElasticaService;
 
 /**
  * Adds elastic search integration to a data object.
