@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverStripe\Elastica\Services;
+namespace Violet88\Elastica\Services;
 
 use Elastica\Client;
 use Elastica\Query;
