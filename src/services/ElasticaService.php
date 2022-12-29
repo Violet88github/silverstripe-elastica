@@ -210,7 +210,7 @@ class ElasticaService {
 	public function getIndexedClasses() {
 		$classes = array();
         foreach (ClassInfo::subclassesFor('Silverstripe\ORM\DataObject') as $candidate) {
-            if (singleton($candidate)->hasExtension('SilverStripe\\Elastica\\Searchable')) {
+            if (singleton($candidate)->hasExtension('Violet88\\Elastica\\Extensions\\Searchable')) {
 				$classes[] = $candidate;
 			}
 		}
