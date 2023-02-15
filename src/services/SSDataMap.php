@@ -21,7 +21,7 @@ class SSDataMap
 	public static function DenormalizeRelation($relation, array $fieldmap) {
 		// check if wee need to loop the relation for has_many/many_many relations
 		// otherwise check if the relation (has_one) exists
-		if(get_class($relation) === 'ManyManyList') {
+		if(get_class($relation) === 'SilverStripe\ORM\ManyManyList') {
 			$map = array();
 			foreach ($relation as $rel) {
 				foreach ($fieldmap as $key => $field) {
@@ -30,7 +30,7 @@ class SSDataMap
 			}
 
 			return $map;
-		} else if(get_class($relation) === 'HasManyList') {
+		} else if(get_class($relation) === 'SilverStripe\ORM\HasManyList') {
 			// TODO: add logic for has_many relations (perhaps the same as many_many?)
 		} else if($relation->exists()) {
 			// has_one found, and has_one exists.
