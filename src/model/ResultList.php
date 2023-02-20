@@ -56,9 +56,9 @@ class ResultList extends ViewableData implements SS_List, Limitable {
 			$search->addIndex($this->index);
 			$search->setOptionsAndQuery(NULL, $this->query);
 
-			if($this->type) {
+			/*if($this->type) {
 				$search->addType($this->type);
-			}
+			}*/
 
 			$this->search = $search->search();
 		}
@@ -105,10 +105,10 @@ class ResultList extends ViewableData implements SS_List, Limitable {
 			$type = $item->getSource()['type'];
 
 			if (!array_key_exists($type, $needed)) {
-				$needed[$type] = array($item->getId());
+				$needed[$type] = array($item->getSource()['id']);
 				$retrieved[$type] = array();
 			} else {
-				$needed[$type][] = $item->getId();
+				$needed[$type][] = $item->getSource()['id'];
 			}
 		}
 
@@ -120,9 +120,9 @@ class ResultList extends ViewableData implements SS_List, Limitable {
 
 		foreach ($found as $item) {
 			// Safeguards against indexed items which might no longer be in the DB
-			if(array_key_exists($item->getId(), $retrieved[$item->getSource()['type']])) {
-                $retrieved[$item->getSource()['type']][$item->getId()]->Score = $item->getScore();
-				$result[] = $retrieved[$item->getSource()['type']][$item->getId()];
+			if(array_key_exists($item->getSource()['id'], $retrieved[$item->getSource()['type']])) {
+                $retrieved[$item->getSource()['type']][$item->getSource()['id']]->Score = $item->getScore();
+				$result[] = $retrieved[$item->getSource()['type']][$item->getSource()['id']];
 			}
 		}
 
@@ -146,9 +146,9 @@ class ResultList extends ViewableData implements SS_List, Limitable {
 	public function first() {
 		$found = $this->getResults();
 		if(isset($found[0]) && $item = $found[0]) {
-			$class = $item->getType();
+			$class = $item->getSource()['type'];
 
-			return $class::get()->byID($item->getId());
+			return $class::get()->byID($item->getSource()['id']);
 		}
 	}
 

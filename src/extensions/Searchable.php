@@ -71,6 +71,7 @@ class Searchable extends DataExtension {
 			$result[$name] = $spec;
 		}
         $result["type"] = array();
+        $result['id'] = array();
 
 		return $result;
 	}
@@ -92,8 +93,9 @@ class Searchable extends DataExtension {
 			$fields[$field] = $this->owner->$field;
 		}
         $fields['type'] = $this->owner->getClassName();
+        $fields['id'] = $this->owner->ID;
 
-		return new Document($this->owner->ID, $fields);
+		return new Document(null, $fields);
 	}
 
 	/**
