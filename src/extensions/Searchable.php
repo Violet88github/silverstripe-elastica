@@ -95,7 +95,7 @@ class Searchable extends DataExtension {
         $fields['type'] = $this->owner->getClassName();
         $fields['id'] = $this->owner->ID;
 
-		return new Document(null, $fields);
+		return new Document($this->owner->getClassName().$this->owner->ID, $fields);
 	}
 
 	/**
