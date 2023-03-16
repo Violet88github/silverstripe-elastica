@@ -5,6 +5,7 @@ namespace Violet88\Elastica\Extensions;
 use Elastica\Document;
 use Elastica\Mapping;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\DataObject;
 use Violet88\Elastica\Services\ElasticaService;
 
 /**
