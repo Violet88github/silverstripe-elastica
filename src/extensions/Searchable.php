@@ -47,8 +47,7 @@ class Searchable extends DataExtension {
 	 * @return array
 	 */
 	public function getElasticaFields() {
-        //$db = DataObject::database_fields(get_class($this->owner));
-        $db = $this->owner->toMap();
+        $db = DataObject::getSchema()->databaseFields($this->owner);
 		$fields = $this->owner->searchableFields();
 		$result = array();
 
