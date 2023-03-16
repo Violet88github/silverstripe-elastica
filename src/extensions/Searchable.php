@@ -17,14 +17,14 @@ class Searchable extends DataExtension {
 		'Boolean'     => 'boolean',
 		'Decimal'     => 'double',
 		'Double'      => 'double',
-		'Enum'        => 'string',
+		'Enum'        => 'keyword',
 		'Float'       => 'float',
-		'HTMLText'    => 'string',
-		'HTMLVarchar' => 'string',
+		'HTMLText'    => 'text',
+		'HTMLVarchar' => 'text',
 		'Int'         => 'integer',
 		'SS_Datetime' => 'date',
-		'Text'        => 'string',
-		'Varchar'     => 'string',
+		'Text'        => 'text',
+		'Varchar'     => 'keyword',
 		'Year'        => 'integer'
 	);
 
